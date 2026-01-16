@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evermore Travel - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.1) 100%);
+        }
+
+        .container {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 7rem;
+            font-weight: 300;
+            color: #5a5a5a;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.3);
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            color: #7a7a7a;
+            margin-bottom: 60px;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.3);
+        }
+
+        .form-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px 60px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .form-section p {
+            color: #666;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #d0d0d0;
+            background: #fafafa;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #8a8a8a;
+            background: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: #6b6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button:hover {
+            background: #4a4a4a;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            background: #5a8f7b;
+            color: white;
+            padding: 18px;
+            border-radius: 4px;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 4.5rem;
+            }
+
+            .subtitle {
+                font-size: 2rem;
+            }
+
+            .coming-soon {
+                font-size: 0.75rem;
+                letter-spacing: 4px;
+            }
+
+            .form-section {
+                padding: 35px 30px;
+            }
+
+            .form-section h3 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 3.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .form-section {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="coming-soon">Website Coming Soon</div>
+            <h1 class="logo">Evermore</h1>
+            <h2 class="subtitle">Travel</h2>
+
+            <div class="form-section">
+                <h3>Get Your Free Quote</h3>
+                <p>Share your travel dreams with us and we'll create a personalized itinerary just for you.</p>
+                
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Travel Plans</label>
+                        <textarea id="message" name="message" required placeholder="Tell us where you'd like to go, when, and any special requests..."></textarea>
+                    </div>
+
+                    <button type="submit">Request Quote</button>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    Thank you for reaching out! We'll be in touch with your custom quote soon.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Form submitted:', formData);
+            
+            document.getElementById('successMessage').style.display = 'block';
+            this.reset();
+            
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
