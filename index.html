@@ -27,8 +27,8 @@
             justify-content: center;
             padding: 40px 20px;
             position: relative;
-           background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), 
-            url('2.svg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), 
+                        url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80') center/cover no-repeat;
             background-attachment: fixed;
         }
 
@@ -207,7 +207,7 @@
                 <h3>Get Your Free Quote</h3>
                 <p>Share your travel dreams with us and we'll create a personalized itinerary just for you.</p>
                 
-                <form id="quoteForm">
+                <form id="quoteForm" action="https://formspree.io/f/maqqqejl" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required placeholder="Your name">
@@ -235,23 +235,16 @@
 
     <script>
         document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value,
-                timestamp: new Date().toISOString()
-            };
-            
-            console.log('Form submitted:', formData);
-            
-            document.getElementById('successMessage').style.display = 'block';
-            this.reset();
-            
+            // Let Formspree handle the submission
+            // Show success message after a brief delay
             setTimeout(function() {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Hide after 5 seconds
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            }, 100);
         });
     </script>
 </body>
