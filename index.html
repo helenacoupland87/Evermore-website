@@ -28,7 +28,7 @@
             padding: 40px 20px;
             position: relative;
             background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), 
-            url('2.svg') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80') center/cover no-repeat;
             background-attachment: fixed;
         }
 
@@ -61,22 +61,11 @@
         }
 
         .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 7rem;
-            font-weight: 300;
-            color: #5a5a5a;
-            margin-bottom: 10px;
-            line-height: 1.1;
-            text-shadow: 0 2px 8px rgba(255,255,255,0.3);
-        }
-
-        .subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 300;
-            color: #7a7a7a;
+            max-width: 400px;
+            width: 100%;
+            height: auto;
             margin-bottom: 60px;
-            text-shadow: 0 2px 4px rgba(255,255,255,0.3);
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
         }
 
         .form-section {
@@ -180,11 +169,7 @@
 
         @media (max-width: 768px) {
             .logo {
-                font-size: 4.5rem;
-            }
-
-            .subtitle {
-                font-size: 2rem;
+                max-width: 280px;
             }
 
             .coming-soon {
@@ -203,11 +188,7 @@
 
         @media (max-width: 480px) {
             .logo {
-                font-size: 3.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.5rem;
+                max-width: 220px;
             }
 
             .form-section {
@@ -220,8 +201,7 @@
     <section class="hero">
         <div class="container">
             <div class="coming-soon">Website Coming Soon</div>
-            <h1 class="logo">Evermore</h1>
-            <h2 class="subtitle">Travel</h2>
+            <img src="logo.png" alt="Evermore Travel" class="logo">
 
             <div class="form-section">
                 <h3>Get Your Free Quote</h3>
